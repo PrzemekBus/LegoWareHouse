@@ -1,0 +1,2 @@
+alter table lwh_stock_products add constraint fk_stock_products_stock foreign key (sp_stock_id) references lwh_stock(stock_id);
+alter table lwh_stock_products add constraint fk_stock_products_product foreign key (sp_prod_id) references lwh_products(prod_id);
