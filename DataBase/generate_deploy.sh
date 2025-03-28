@@ -17,9 +17,9 @@ for file in "$BASE_DIR/tables"/*.sql; do
 done
 
 # Dodawanie plików z folderu scripts
-echo -e "\n-------------Initialization scripts-------------" >> "$DEPLOY_FILE"
-for file in "$BASE_DIR/scripts"/*.sql; do
-  echo "@scripts/$(basename "$file")" >> "$DEPLOY_FILE"
+echo -e "\n-------------Initialization sequences-------------" >> "$DEPLOY_FILE"
+for file in "$BASE_DIR/sequences"/*.sql; do
+  echo "@sequences/$(basename "$file")" >> "$DEPLOY_FILE"
 done
 
 # Dodawanie plików z folderu indexes
@@ -38,6 +38,12 @@ done
 echo -e "\n-------------Initialization updates-------------" >> "$DEPLOY_FILE"
 for file in "$BASE_DIR/migrations"/*.sql; do
   echo "@migrations/$(basename "$file")" >> "$DEPLOY_FILE"
+done
+
+# Dodawanie plików z folderu scripts
+echo -e "\n-------------Initialization scripts-------------" >> "$DEPLOY_FILE"
+for file in "$BASE_DIR/scripts"/*.sql; do
+  echo "@scripts/$(basename "$file")" >> "$DEPLOY_FILE"
 done
 
 echo "Deploy file generated at $DEPLOY_FILE"
