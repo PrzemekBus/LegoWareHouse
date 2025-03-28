@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# filepath: c:\Users\gramp\OneDrive\Pulpit\LegoWareHouse\DataBase\generate_deploy.sh
-
 # Ścieżka do folderu z plikami SQL
 BASE_DIR="c:/Users/gramp/OneDrive/Pulpit/LegoWareHouse/DataBase"
 
@@ -11,40 +9,27 @@ DEPLOY_FILE="$BASE_DIR/deploy.sql"
 # Tworzenie nagłówka pliku
 echo "-------------Initialization tables-------------" > "$DEPLOY_FILE"
 
-# Dodawanie plików z folderu tables
-for file in "$BASE_DIR/tables"/*.sql; do
-  echo "@tables/$(basename "$file")" >> "$DEPLOY_FILE"
-done
+# Funkcja do dodawania sekcji tylko, jeśli folder zawiera pliki
+add_section() {
+  local folder=$1
+  local section_name=$2
+  local prefix=$3
 
-# Dodawanie plików z folderu scripts
-echo -e "\n-------------Initialization sequences-------------" >> "$DEPLOY_FILE"
-for file in "$BASE_DIR/sequences"/*.sql; do
-  echo "@sequences/$(basename "$file")" >> "$DEPLOY_FILE"
-done
+  if compgen -G "$folder/*.sql" > /dev/null; then
+    echo -e "\n-------------$section_name-------------" >> "$DEPLOY_FILE"
+    for file in "$folder"/*.sql; do
+      echo "$prefix/$(basename "$file")" >> "$DEPLOY_FILE"
+    done
+  fi
+}
 
-# Dodawanie plików z folderu indexes
-echo -e "\n-------------Initialization indexes-------------" >> "$DEPLOY_FILE"
-for file in "$BASE_DIR/indexes"/*.sql; do
-  echo "@indexes/$(basename "$file")" >> "$DEPLOY_FILE"
-done
-
-# Dodawanie plików z folderu constraints
-echo -e "\n-------------Initialization constraints-------------" >> "$DEPLOY_FILE"
-for file in "$BASE_DIR/constraints"/*.sql; do
-  echo "@constraints/$(basename "$file")" >> "$DEPLOY_FILE"
-done
-
-# Dodawanie plików z folderu migrations
-echo -e "\n-------------Initialization updates-------------" >> "$DEPLOY_FILE"
-for file in "$BASE_DIR/migrations"/*.sql; do
-  echo "@migrations/$(basename "$file")" >> "$DEPLOY_FILE"
-done
-
-# Dodawanie plików z folderu scripts
-echo -e "\n-------------Initialization scripts-------------" >> "$DEPLOY_FILE"
-for file in "$BASE_DIR/scripts"/*.sql; do
-  echo "@scripts/$(basename "$file")" >> "$DEPLOY_FILE"
-done
+# Dodawanie sekcji
+add_section "$BASE_DIR/tables" "Initialization tables" "@tables"
+add_section "$BASE_DIR/sequences" "Initialization sequences" "@sequences"
+add_section "$BASE_DIR/indexes" "Initialization indexes" "@indexes"
+add_section "$BASE_DIR/constraints" "Initialization constraints" "@constraints"
+add_section "$BASE_DIR/migrations" "Initialization updates" "@migrations"
+add_section "$BASE_DIR/scripts" "Initialization scripts" "@scripts"
 
 echo "Deploy file generated at $DEPLOY_FILE"
 
