@@ -1,0 +1,1 @@
+alter table lwh_dictionaries add  constraint uk_dict_entry unique (dct_name, dct_value1);
