@@ -8,14 +8,9 @@
 -------------Initialization scripts-------------
 @scripts/init_dictionaries.sql
 
--------------Initialization indexes-------------
-@indexes/*.sql
-
 -------------Initialization constraints-------------
 @constraints/lwh_c_dictionaries.sql
 @constraints/lwh_c_products.sql
 @constraints/lwh_c_stock.sql
 @constraints/lwh_c_stock_products.sql
 
--------------Initialization updates-------------
-@migrations/*.sql
