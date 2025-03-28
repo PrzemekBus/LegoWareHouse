@@ -1,0 +1,1 @@
+alter table lwh_sales_history add constraint fk_sl_product foreign key (sl_prod_id) references lwh_products(prod_id);
