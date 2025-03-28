@@ -1,0 +1,1 @@
+alter table lwh_product_images add constraint fk_product_images_product foreign key (prod_id) references lwh_products(prod_id);
