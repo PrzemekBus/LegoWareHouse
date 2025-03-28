@@ -41,3 +41,9 @@ for file in "$BASE_DIR/migrations"/*.sql; do
 done
 
 echo "Deploy file generated at $DEPLOY_FILE"
+
+# Automatyczne dodanie zmian do Git
+cd "$BASE_DIR" || exit
+git add .
+git commit -m "Auto-generated deploy.sql with updated file references"
+echo "Changes committed to Git."
