@@ -4,7 +4,7 @@ create table lwh_products (
     prod_eng_name varchar2(100),
     prod_description varchar2(4000),
     prod_set_number varchar2(20) not null,
-    prod_theme varchar2(50),
+    prod_th_id number,
     prod_release_year number(4),
     prod_pieces_count number,
     prod_minifigs_count number,
