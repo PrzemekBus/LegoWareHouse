@@ -23,7 +23,7 @@ comment on column lwh_products.prod_name is 'Name of the product';
 comment on column lwh_products.prod_eng_name is 'English name of the product';
 comment on column lwh_products.prod_description is 'Description of the product';
 comment on column lwh_products.prod_set_number is 'Set number of the product';
-comment on column lwh_products.prod_theme is 'Theme or series of the product';
+comment on column lwh_products.prod_th_id is 'Foreign key for theme product';
 comment on column lwh_products.prod_release_year is 'Year the product was released';
 comment on column lwh_products.prod_pieces_count is 'Number of pieces in the product';
 comment on column lwh_products.prod_minifigs_count is 'Number of minifigures in the product';
