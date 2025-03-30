@@ -158,14 +158,5 @@ insert into lwh_theme (
     1,
     systimestamp,
     1
-);
-
-
-
-
-
-
-
-
-    
+);   
 
