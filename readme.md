@@ -1,4 +1,8 @@
 # 🏗️ LegoWareHouse
+![Version](https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge)
+![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
+![Status](https://img.shields.io/badge/status-Active-brightgreen?style=for-the-badge)
+![Contributions](https://img.shields.io/badge/contributions-welcome-orange?style=for-the-badge)
 
 LegoWareHouse is an application for managing a warehouse of LEGO sets, tracking sales, monitoring prices, and integrating with sales platforms. The application allows you to manage products, images, users, and scrape data from external sources.
 
@@ -82,7 +86,6 @@ LegoWareHouse is an application for managing a warehouse of LEGO sets, tracking 
 ## 🛠️ Tech Stack
 
 ![Oracle](https://img.shields.io/badge/Database-OracleDB-F80000?style=for-the-badge&logo=oracle&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white)
 ![PL/SQL](https://img.shields.io/badge/Backend-PL%2FSQL-4479A1?style=for-the-badge&logo=oracle&logoColor=white)
 ![Oracle APEX](https://img.shields.io/badge/Frontend-Oracle%20APEX-F80000?style=for-the-badge&logo=oracle&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
